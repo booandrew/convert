@@ -10,11 +10,11 @@
     "mock": "json-server -w db.json -p 4200 -d 2000"
   },
   "dependencies": {
-    "antd": "^4.8.2",
     "next": "10.0.1",
     "nextjs-progressbar": "0.0.7",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-modal": "^3.11.2",
     "react-outside-click-handler": "^1.3.0",
     "styled-components": "^5.2.1",
     "styled-normalize": "^8.0.7"
