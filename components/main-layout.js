@@ -2,13 +2,15 @@ import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
 import { ModalWindowConsumer } from "../context/context";
-import { Modal } from "./modal";
+import Modal from 'react-modal'
+import BaseModal from "./base-modal";
 
 export const MainLayout = ({ children, title = 'Next app' }) => {
+  return (
+    <ModalWindowConsumer>{({ showModal, isModalOpen }) => {
       return (
         <>
-        
-              <Head>
+          <Head>
             <title>
               {title}
             </title>
@@ -33,21 +35,30 @@ export const MainLayout = ({ children, title = 'Next app' }) => {
 
 
               <ModalButtonContainer>
-                <CustomButton onClick={() => showModal()}>
-                  <Text>Модальное окно</Text>
-                </CustomButton>
+                <CustomButton onClick={showModal}>Модальное окно</CustomButton>
               </ModalButtonContainer>
-
+              {isModalOpen && <BaseModal  />}
             </HeaderContainer>
             <MainContent>
               {children}
             </MainContent>
           </Layout>
-          </>
-    );
+        </>
+      )
+    }}
+    </ModalWindowConsumer>
+
+
+  );
 }
 
 export default MainLayout
+
+const Roro = styled.div`
+color: red;
+background-color: red;
+background: red;
+`
 
 const HeaderContainer = styled.div`
   height: 60px;
@@ -111,13 +122,14 @@ const ModalButtonContainer = styled.div`
   width: 200px;
 `
 
-const ModalWindowContainer = styled.div`
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 0;
-  background: rgba(0,0,0,0.7);
-  pointer-events: none;
+const CustomModal = styled(Modal)`
+  width: 200px;
+  height: 500px ;
+  margin: 100px auto;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  border-radius: 0;
 `   

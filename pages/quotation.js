@@ -11,18 +11,7 @@ export default function Posts() {
 
     return (
         <MainLayout>
-            <ModalWindowConsumer>{({ isModalOpen, showModal, hideModal }) => {
-                return (
-                    <>
-                        <button onClick={showModal}>Show</button>
-                        <Modal isOpen={isModalOpen} onRequestClose={hideModal} ariaHideApp={false}>
-                            <h2>Title</h2>
-                            <p>Body of the body of the body</p>
-                            <div onClick={hideModal}>Close</div>
-                        </Modal>
-                    </>
-                )
-            }}</ModalWindowConsumer>
+            
 
         </MainLayout>
     )
